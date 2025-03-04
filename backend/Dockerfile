@@ -10,6 +10,9 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Set the NODE_OPTIONS environment variable to use legacy OpenSSL providers
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
@@ -18,3 +21,4 @@ ENV NAME World
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
+
