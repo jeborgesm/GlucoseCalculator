@@ -18,3 +18,4 @@ EXPOSE 5000
 
 # Run the Flask application using Gunicorn
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:app"]
+
