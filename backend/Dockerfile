@@ -11,11 +11,12 @@ COPY backend/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container at /app
-COPY . /app
+COPY backend /app
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
 # Run the Flask application using Gunicorn
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:app"]
+
 
